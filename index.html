@@ -1,125 +1,382 @@
-<!DOCTYPE html>
+V<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engineering Student & Developer | Portfolio</title>
-  <style>
-    :root {
-      --bg: #0d1117;
-      --card: #161b22;
-      --border: #30363d;
-      --text: #c9d1d9;
-      --heading: #f0f6fc;
-      --accent: #58a6ff;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      padding: 24px 16px;
-    }
-    .container { max-width: 760px; margin: 0 auto; }
-    header { margin-bottom: 40px; }
-    h1 { font-size: 2rem; color: var(--heading); margin-bottom: 8px; }
-    p.subtitle { color: var(--accent); font-size: 1.05rem; font-weight: 500; }
-    .bio { margin-top: 14px; color: #8b949e; }
-    h2 { font-size: 1.3rem; color: var(--heading); margin: 36px 0 16px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    @media (min-width: 600px) { .grid { grid-template-columns: 1fr 1fr; } }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px;
-    }
-    .card h3 { color: var(--heading); font-size: 1.05rem; margin-bottom: 6px; }
-    .card p { font-size: 0.9rem; color: #8b949e; }
-    .badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      background: #21262d;
-      color: var(--accent);
-      padding: 2px 8px;
-      border-radius: 12px;
-      margin-top: 10px;
-    }
-    .contact-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px;
-      text-align: center;
-      margin-top: 30px;
-    }
-    .btn {
-      display: inline-block;
-      background: #238636;
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-weight: 600;
-      margin-top: 12px;
-    }
-    .btn:hover { background: #2ea043; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junia Vinod | Developer & Technical Writer</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --border: #30363d;
+            --accent: #58a6ff;
+            --accent-green: #238636;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --text-heading: #f0f6fc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(35, 134, 54, 0.15);
+            border: 1px solid rgba(46, 160, 67, 0.4);
+            color: #3fb950;
+            font-size: 0.82rem;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #3fb950;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #3fb950;
+        }
+
+        header {
+            margin-bottom: 36px;
+        }
+
+        h1 {
+            color: var(--text-heading);
+            font-size: 2.2rem;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .role {
+            color: var(--accent);
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .bio {
+            color: var(--text-muted);
+            max-width: 700px;
+            font-size: 0.98rem;
+        }
+
+        /* Tech Pills */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .pill {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-heading);
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 6px;
+        }
+
+        h2 {
+            color: var(--text-heading);
+            font-size: 1.35rem;
+            margin: 40px 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            color: var(--text-heading);
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            margin-bottom: 14px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: rgba(88, 166, 255, 0.12);
+            color: var(--accent);
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Interactive Card Links */
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .card-link {
+            color: var(--accent);
+            font-size: 0.82rem;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Table Styling */
+        .table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background-color: var(--surface);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: var(--text-heading);
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        td strong {
+            color: var(--text-heading);
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: linear-gradient(180deg, var(--surface) 0%, rgba(22, 27, 34, 0.6) 100%);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px 20px;
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .contact-box h3 {
+            color: var(--text-heading);
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .contact-box p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn:hover {
+            background-color: #2ea043;
+            transform: scale(1.02);
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Tech & Web Development</h1>
-      <p class="subtitle">ECE Undergrad @ GEC Idukki | Web Developer & Technical Writer</p>
-      <p class="bio">
-        Building responsive web applications, frontend landing pages, and providing LaTeX formatting for research and seminar papers. Available for freelance assignments and technical collaborations.
-      </p>
-    </header>
 
-    <h2>Services Offered</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Landing Pages & Web Portals</h3>
-        <p>Responsive, mobile-first websites for events, student startups, and local ventures. Clean HTML/CSS/JS and modern frameworks.</p>
-        <span class="badge">Turnaround: 2–3 Days</span>
-      </div>
-      <div class="card">
-        <h3>LaTeX Document Formatting</h3>
-        <p>Professional formatting of seminar reports, IEEE papers, and B.Tech project documentation adhering to standard university schemas.</p>
-        <span class="badge">Turnaround: 24–48 Hours</span>
-      </div>
-      <div class="card">
-        <h3>Python Scripting & Data Cleaning</h3>
-        <p>Automation scripts, CSV/data manipulation, and simulation preprocessing for engineering labs and senior projects.</p>
-        <span class="badge">Turnaround: 1–2 Days</span>
-      </div>
-      <div class="card">
-        <h3>UI/UX & Media Assets</h3>
-        <p>Clean Figma mockups, event banner kits, and tech club presentation decks designed for high readability.</p>
-        <span class="badge">Turnaround: 24 Hours</span>
-      </div>
+    <div class="container">
+        
+        <!-- Live Status -->
+        <div class="status-badge">
+            <span class="status-dot"></span> Available for selective weekend gigs & projects
+        </div>
+
+        <header>
+            <h1>Tech & Web Development</h1>
+            <div class="role">ECE Undergrad @ GEC Idukki | Web Developer & Technical Writer</div>
+            <p class="bio">
+                Building responsive web portals, lightweight landing pages, and providing LaTeX formatting for research, seminar papers, and mini-project documentation. Available for freelance assignments and technical collaborations.
+            </p>
+            <div class="tech-stack">
+                <span class="pill">HTML5 & CSS3</span>
+                <span class="pill">JavaScript</span>
+                <span class="pill">Python</span>
+                <span class="pill">LaTeX (Overleaf)</span>
+                <span class="pill">Git & GitHub</span>
+                <span class="pill">KTU/IEEE Formats</span>
+            </div>
+        </header>
+
+        <!-- Services -->
+        <h2>Services Offered</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Landing Pages & Web Portals</h3>
+                <p>Responsive, mobile-first websites for events, student startups, and local ventures. Clean HTML/CSS/JS and modern frameworks.</p>
+                <span class="badge">Turnaround: 2-3 Days</span>
+            </div>
+
+            <div class="card">
+                <h3>LaTeX Document Formatting</h3>
+                <p>Professional formatting of seminar reports, IEEE papers, and B.Tech project documentation adhering to standard university schemas.</p>
+                <span class="badge">Turnaround: 24-48 Hours</span>
+            </div>
+
+            <div class="card">
+                <h3>Python Scripting & Data Cleaning</h3>
+                <p>Automation scripts, CSV/data manipulation, and simulation preprocessing for engineering labs and senior projects.</p>
+                <span class="badge">Turnaround: 1-2 Days</span>
+            </div>
+
+            <div class="card">
+                <h3>UI/UX & Media Assets</h3>
+                <p>Clean Figma mockups, event banner kits, and tech club presentation decks designed for high readability.</p>
+                <span class="badge">Turnaround: 24 Hours</span>
+            </div>
+        </div>
+
+        <!-- Pricing Snapshot -->
+        <h2>Turnaround & Starting Rates</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Standard Turnaround</th>
+                        <th>Deliverable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>IEEE / KTU Seminar Report Formatting</strong></td>
+                        <td>24 – 48 Hours</td>
+                        <td>Compiled PDF + Complete Overleaf source (.zip)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fest / Club Event Landing Page</strong></td>
+                        <td>2 – 3 Days</td>
+                        <td>Full source code + Free live hosting on GitHub Pages</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Python Automation & Parsing Script</strong></td>
+                        <td>24 Hours</td>
+                        <td>Clean Python script + Formatted Excel/CSV outputs</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Sample Projects -->
+        <h2>Sample Projects & Workflows</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Responsive Web Design Showcase</h3>
+                <p>Cross-device responsive landing page template featuring clean navigation, modern CSS grid layout, and zero dependencies.</p>
+                <span class="badge">Frontend</span>
+                <div class="card-actions">
+                    <a href="https://github.com/junialabs/junialabs.github.io" class="card-link" target="_blank">View Code ↗</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>IEEE Seminar Report Engine</h3>
+                <p>Standardized Overleaf LaTeX environment ready for KTU/IEEE engineering seminar and conference paper submissions.</p>
+                <span class="badge">LaTeX / Documentation</span>
+                <div class="card-actions">
+                    <a href="https://wa.me/917012877011?text=Hi%20Junia,%20can%20you%20share%20a%20sample%20of%20your%20LaTeX%20report%20format?" class="card-link">Request Sample PDF ↗</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Data Automation Utilities</h3>
+                <p>Python script collection for automated dataset formatting, record parsing, and mathematical calculations.</p>
+                <span class="badge">Python</span>
+                <div class="card-actions">
+                    <a href="https://github.com/junialabs" class="card-link" target="_blank">GitHub Profile ↗</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="contact-box">
+            <h3>Have a project or document deadline?</h3>
+            <p>I work on selective weekend slots to deliver high-quality work on time.</p>
+            <a class="btn" href="https://wa.me/917012877011?text=Hi%20Junia,%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20project">Chat on WhatsApp</a>
+        </div>
+
+        <footer>
+            junialabs.github.io • Hosted via GitHub Pages
+        </footer>
+
     </div>
 
-    <h2>Sample Projects</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Responsive Web Design Showcase</h3>
-        <p>Cross-device responsive landing page template featuring clean navigation, modern CSS grid layout, and zero dependencies.</p>
-        <span class="badge">Frontend</span>
-      </div>
-      <div class="card">
-        <h3>Data Automation Utilities</h3>
-        <p>Python script collection for automated dataset formatting, record parsing, and mathematical calculations.</p>
-        <span class="badge">Python</span>
-      </div>
-    </div>
-
-    <div class="contact-box">
-      <h3>Have a project or document deadline?</h3>
-      <p>I work on selective weekend slots to deliver high-quality work on time.</p>
-      <a class="btn" href="https://wa.me/917012877011">Chat on Whatsapp</a>
-    </div>
-  </div>
 </body>
 </html>
